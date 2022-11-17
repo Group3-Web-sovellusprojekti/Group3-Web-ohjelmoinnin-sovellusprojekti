@@ -1,4 +1,4 @@
-package com.security.auth;
+package com.dbdata.data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
