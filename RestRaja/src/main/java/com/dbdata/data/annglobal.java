@@ -12,24 +12,20 @@ import javax.persistence.Table;
 public class annglobal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int time;
+    public int timeA;
 
-    @Column(name = "Anomaly (deg C)")
-    public double anomaly;
+    @Column(name = "global")
+    public double global;
 
-    @Column(name = "Lower confidence limit (2.5%)")
-    public double lowerconf;
-
-    @Column(name = "Upper confidence limit (97.5%)")
-    public double upperconf;
+    @Column(name = "time")
+    public double time;
 
     public annglobal() {
     }
 
-    public annglobal(int time, double anomaly, double lowerconf, double upperconf) {
+    public annglobal(int timeA, double global, double time) {
+        this.timeA = timeA;
+        this.global = global;
         this.time = time;
-        this.anomaly = anomaly;
-        this.lowerconf = lowerconf;
-        this.upperconf = upperconf;
     }
 }

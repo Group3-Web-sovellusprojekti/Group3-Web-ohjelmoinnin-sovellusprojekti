@@ -12,24 +12,20 @@ import javax.persistence.Table;
 public class monsouth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int time;
+    public int timeB;
 
-    @Column(name = "Anomaly (deg C)")
-    public double anomaly;
+    @Column(name = "south")
+    public double south;
 
-    @Column(name = "Lower confidence limit (2.5%)")
-    public double lowerconf;
-
-    @Column(name = "Upper confidence limit (97.5%)")
-    public double upperconf;
+    @Column(name = "time")
+    public double time;
 
     public monsouth() {
     }
 
-    public monsouth(int time, double anomaly, double lowerconf, double upperconf) {
+    public monsouth(int timeB, double south, double time) {
+        this.timeB = timeB;
+        this.south = south;
         this.time = time;
-        this.anomaly = anomaly;
-        this.lowerconf = lowerconf;
-        this.upperconf = upperconf;
     }
 }
