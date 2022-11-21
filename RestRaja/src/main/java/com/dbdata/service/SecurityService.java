@@ -1,4 +1,4 @@
-package com.security.auth;
+package com.dbdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,15 +10,17 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.dbdata.data.User;
+import com.dbdata.repo.PersonRepo;
 
 @Service
 public class SecurityService {
 
     @Autowired
-    PersonRepository repo;
+    PersonRepo repo;
 
     @Autowired
-    MyPasswordEncoder myEncoder;
+    PasswordEncoder myEncoder;
 
     @Value("${jwt.secret}")
     private String jwtKey;
