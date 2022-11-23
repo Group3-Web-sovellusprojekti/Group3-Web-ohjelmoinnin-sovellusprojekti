@@ -1,4 +1,4 @@
-package com.security.auth;
+package com.dbdata.rest;
 
 import java.util.Base64;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dbdata.data.User;
+import com.dbdata.service.SecurityService;
 
 @RestController
 public class SecurityRestApi {

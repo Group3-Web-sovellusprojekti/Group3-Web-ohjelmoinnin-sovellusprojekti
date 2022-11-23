@@ -1,4 +1,4 @@
-package com.security.auth;
+package com.dbdata.data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,7 +8,8 @@ public class User {
     @Id
     public String username;
     public String password;
-    
+    public int status;
+
     public User() {
     }
 
@@ -17,6 +18,9 @@ public class User {
         this.password = pw;
     }
 
-}
- 
+    public User(String username, int status) {
+        this.username = username;
+        this.status = status;
+    }
 
+}

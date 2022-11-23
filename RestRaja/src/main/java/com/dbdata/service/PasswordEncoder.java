@@ -1,8 +1,8 @@
-package com.security.auth;
+package com.dbdata.service;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MyPasswordEncoder extends BCryptPasswordEncoder{   
+public class PasswordEncoder extends BCryptPasswordEncoder {
 }

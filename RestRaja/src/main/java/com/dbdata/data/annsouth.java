@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Table;
 import javax.persistence.Table;
 
 @Entity
@@ -13,24 +12,20 @@ import javax.persistence.Table;
 public class annsouth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int time;
+    public int timeA;
 
-    @Column(name = "Anomaly (deg C)")
-    public double anomaly;
+    @Column(name = "south")
+    public double south;
 
-    @Column(name = "Lower confidence limit (2.5%)")
-    public double lowerconf;
-
-    @Column(name = "Upper confidence limit (97.5%)")
-    public double upperconf;
+    @Column(name = "time")
+    public double time;
 
     public annsouth() {
     }
 
-    public annsouth(int time, double anomaly, double lowerconf, double upperconf) {
+    public annsouth(int timeA, double south, double time) {
+        this.timeA = timeA;
+        this.south = south;
         this.time = time;
-        this.anomaly = anomaly;
-        this.lowerconf = lowerconf;
-        this.upperconf = upperconf;
     }
 }
