@@ -8,6 +8,9 @@ import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Test from "./Chart/Test";
+
+
 
 function App() {
   return (
@@ -19,11 +22,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-        </Routes>
+          <Route path="/test" element={<Test />} />
+        </ Routes>
       </div>
       <Footer />
     </>
   );
+  
 }
 
 export default App;
