@@ -22,6 +22,11 @@ export default function Navbar() {
                 <button class="btn-1">Log In</button>
               </Link>
             </li>
+            <li>
+              <Link to="/Test">
+                <button class="btn-1">Test</button>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
