@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Settings() {
+  function deleteUser() {}
+
   return (
     <div class="col-6">
       <div className="Settings">
