@@ -48,6 +48,14 @@ label{
 }
 */
 
+.container{
+  max-width: 1440px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border-radius: 5px;
+  background: red;
+}
 
 input, textarea{
   font-size: 22px;

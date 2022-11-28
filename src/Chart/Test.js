@@ -2,7 +2,6 @@ import { useState } from "react";
 import LineChart from "../chartComponents/LineChart";
 import { UserData } from "../chartComponents/Data";
 
-
 function Test() {
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
