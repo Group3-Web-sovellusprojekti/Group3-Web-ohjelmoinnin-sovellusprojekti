@@ -28,11 +28,8 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <button class="btn-2">Settings</button>
-            </li>
-            <li>
-              <Link to="settings">
-                <button class="btn-2">Settings</button>
+              <Link to="settings" class="btn-r">
+                <button class="btn-1">Settings</button>
               </Link>
             </li>
           </ul>
