@@ -9,7 +9,9 @@ export default function Settings() {
         <h3>User settings</h3>
         <ul class="ul-2">
           <li>
-            <a href="#">Sign out</a>
+            <a class="a1" href="#">
+              Sign out
+            </a>
           </li>
           <li>
             <Popup
@@ -17,8 +19,10 @@ export default function Settings() {
               position="right"
             >
               <div>
-                <a> Are you sure? </a>
-                <button> Delete </button>
+                <h3>Delete user</h3>
+                <a> Password: </a>
+                <input></input>
+                <button class="btn-del"> Delete user </button>
               </div>
             </Popup>
           </li>

@@ -40,6 +40,7 @@ const Login = () => {
           <div class="field-wrap">
             <label htmlFor="username">Username:</label>
             <input
+              class="input-1"
               type="text"
               required
               autocomplete="off"
@@ -52,6 +53,7 @@ const Login = () => {
           <div class="field-wrap">
             <label htmlFor="password">Password:</label>
             <input
+              class="input-1"
               type="password"
               required
               autocomplete="off"

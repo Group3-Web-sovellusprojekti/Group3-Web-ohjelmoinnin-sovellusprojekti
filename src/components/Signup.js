@@ -15,6 +15,7 @@ export default function SignUp() {
             <div class="field-wrap">
               <label htmlFor="username"> Username:</label>
               <input
+                class="input-1"
                 type="text"
                 required
                 autocomplete="off"
@@ -29,6 +30,7 @@ export default function SignUp() {
             <div class="field-wrap">
               <label htmlFor="email">Email Address:</label>
               <input
+                class="input-1"
                 type="email"
                 required
                 autocomplete="off"
@@ -43,6 +45,7 @@ export default function SignUp() {
             <div class="field-wrap">
               <label htmlFor="password">Set A Password:</label>
               <input
+                class="input-1"
                 type="password"
                 required
                 autocomplete="off"
