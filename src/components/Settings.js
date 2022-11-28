@@ -1,8 +1,8 @@
 import React from "react";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 export default function Settings() {
-  function deleteUser() {}
-
   return (
     <div class="col-6">
       <div className="Settings">
@@ -12,9 +12,15 @@ export default function Settings() {
             <a href="#">Sign out</a>
           </li>
           <li>
-            <a class="del-user" href="#">
-              Delete user
-            </a>
+            <Popup
+              trigger={<a class="del-user">Delete User</a>}
+              position="right"
+            >
+              <div>
+                <a> Are you sure? </a>
+                <button> Delete </button>
+              </div>
+            </Popup>
           </li>
         </ul>
       </div>
