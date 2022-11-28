@@ -18,6 +18,9 @@ a {
   color: #00D8FF;
 }
 
+h3 {
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
