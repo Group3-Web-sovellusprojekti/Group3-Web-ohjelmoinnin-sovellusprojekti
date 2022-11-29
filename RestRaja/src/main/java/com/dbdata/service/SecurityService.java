@@ -58,6 +58,26 @@ public class SecurityService {
         return JWT.create().withSubject(u.username).sign(alg);
     }
 
+    public void deleteUser(String uname) {
+
+        repo.deleteById(uname);
+    }
+
+    public int userStatus(String uname, int status) {
+        User u = repo.findById(uname).orElse(null);
+        u.status = status;
+
+        if (status == 1) {
+            u.status = 0;
+            repo.save(u);
+            return status;
+        }
+
+        u.status = 1;
+        repo.save(u);
+        return status;
+    }
+
     /**
      * Verify jwt token and return username if token is valid
      * 

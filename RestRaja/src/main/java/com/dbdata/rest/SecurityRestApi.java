@@ -2,10 +2,10 @@ package com.dbdata.rest;
 
 import java.util.Base64;
 
-//import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -20,7 +20,7 @@ public class SecurityRestApi {
     @Autowired
     SecurityService secService;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<String> register(
             @RequestParam String uname,
             @RequestParam String pw) {
@@ -28,10 +28,11 @@ public class SecurityRestApi {
         return new ResponseEntity<>(u.username, HttpStatus.OK);
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<String> login(
             @RequestParam String uname,
-            @RequestParam String pw) {
+            @RequestParam String pw,
+            int status) {
         String token = secService.login(uname, pw);
 
         if (token == null) {
@@ -41,7 +42,12 @@ public class SecurityRestApi {
         return new ResponseEntity<>(token, HttpStatus.OK);
     }
 
-    @GetMapping("private")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteByName(@RequestParam(value = "uname") String uname) {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/private")
     public ResponseEntity<String> getPrivateData(@RequestHeader("Authorization") String bearer) {
 
         if (bearer.startsWith("Bearer")) {
@@ -55,7 +61,7 @@ public class SecurityRestApi {
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
-    @PostMapping("loginbasic")
+    @PostMapping("/loginbasic")
     public ResponseEntity<String> loginBasic(@RequestHeader("Authorization") String basicAuth) {
 
         String token = null;
