@@ -2,7 +2,6 @@ html {
   overflow-y: scroll;
 }
 
-
 body {
   background-color: #202435;
   font-size: 75%;
@@ -11,7 +10,6 @@ body {
 * {
   box-sizing: border-box;
 }
-/* */
 
 a {
   text-decoration: none;
@@ -22,8 +20,6 @@ a {
   color: #00D8FF;
 }
 
-h3 {
-}
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -78,9 +74,13 @@ label{
 
 .header {
   background-color: #00D8FF;
-  color: #202435;
   padding: 15px;
 }
+
+.headername {
+  color: #202435;
+}
+
 
 
 .ul-1 {
@@ -144,6 +144,7 @@ float: right;
 .btn-1:hover {
   color: #202435;
 }
+
 
 .btn-r{
 float: right;

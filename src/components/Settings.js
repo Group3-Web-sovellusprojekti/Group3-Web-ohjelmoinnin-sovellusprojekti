@@ -1,8 +1,14 @@
 import React from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import axios from "axios";
 
 export default function Settings() {
+  /*
+  const deleteUser = async (id) => {
+    await axios.delete("http://localhost:8080/user/");
+  };
+*/
   return (
     <div class="col-6">
       <div className="Settings">
@@ -20,7 +26,7 @@ export default function Settings() {
             >
               <div>
                 <h3>Delete user</h3>
-                <a> Password: </a>
+                <a>Password: </a>
                 <input></input>
                 <button class="btn-del"> Delete user </button>
               </div>
