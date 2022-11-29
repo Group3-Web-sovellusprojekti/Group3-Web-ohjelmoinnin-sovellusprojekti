@@ -27,6 +27,11 @@ export default function Navbar() {
                 <button class="btn-1">Test</button>
               </Link>
             </li>
+            <li>
+              <Link to="/Test2">
+                <button class="btn-1">Test2</button>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

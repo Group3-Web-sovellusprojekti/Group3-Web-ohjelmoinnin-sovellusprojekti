@@ -16,6 +16,7 @@ function App() {
   return (
     <>
       <Header />
+      <div className="container1">
       <Navbar />
       <div className="container">
         <Routes>
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/test" element={<Test />} />
         </ Routes>
+      </div>
       </div>
       <Footer />
     </>
