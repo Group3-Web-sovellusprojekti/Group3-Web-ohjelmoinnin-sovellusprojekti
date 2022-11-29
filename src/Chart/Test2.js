@@ -3,14 +3,10 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 
 const Test2 = () => {
-  
-
-
   const chart = () => {
-
     axios
       .get("localhost:808")
-      .then(res => {
+      .then((res) => {
         console.log(res);
         for (const dataObj of res.data.data) {
         }
@@ -21,12 +17,12 @@ const Test2 = () => {
               label: "",
               data: empSal,
               backgroundColor: ["rgba(75, 192, 192, 0.6)"],
-              borderWidth: 4
-            }
-          ]
+              borderWidth: 4,
+            },
+          ],
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
     console.log(empSal, empAge);
@@ -37,11 +33,11 @@ const Test2 = () => {
   }, []);
   return (
     <div className="test2">
-    <div style={{ width: 700 }}>
-      <LineChart chartData={userData} />
+      <div style={{ width: 700 }}>
+        <LineChart chartData={userData} />
+      </div>
     </div>
-  </div>
-);
-  }
+  );
+};
 
 export default Test2;
