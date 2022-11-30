@@ -4,8 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 import com.dbdata.data.*;
 import com.dbdata.repo.*;
+
+import com.dbdata.data.*;
+import com.dbdata.repo.*;
+
 //import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +19,6 @@ public class Dataservice {
 
     @Autowired
     Datarepository repo;
-
     @Autowired
     AnnGlobalRepo AnnGlobalRepo;
     @Autowired
