@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import com.dbdata.data.*;
 import com.dbdata.repo.*;
 
-import com.dbdata.data.*;
-import com.dbdata.repo.*;
-
 //import java.util.ArrayList;
 import java.util.List;
 

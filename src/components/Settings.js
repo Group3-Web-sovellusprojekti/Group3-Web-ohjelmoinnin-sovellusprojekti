@@ -34,7 +34,7 @@ export default function Settings() {
                 <input></input>
                 <button
                   class="btn-del"
-                  /*onClick={() => deleteUser(testtable.id)}*/
+                  /* onClick={() => deleteUser(testtable.id)}*/
                 >
                   Delete user
                 </button>
