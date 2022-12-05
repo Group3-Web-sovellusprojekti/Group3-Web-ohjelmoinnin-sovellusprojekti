@@ -1,25 +1,25 @@
 package com.dbdata.data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class User {
+@Table(name = "vostok")
+public class vostok {
     @Id
-    public Long idUser;
-    public String username;
-    public String password;
-    public int status;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int airAge;
 
-    public User() {
-    }
-
-    public User(String username, String pw) {
-        this.username = username;
+    @Column(name = "coConse")
+    public double coConse;
         this.password = pw;
     }
 
-    public User(String username, String pw, int status) {
+    public user(String username, String pw, int status) {
         this.username = username;
         this.password = pw;
         this.status = status;

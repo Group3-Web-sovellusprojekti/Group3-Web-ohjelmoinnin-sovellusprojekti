@@ -33,6 +33,7 @@ import com.dbdata.data.monnorth;
 import com.dbdata.data.monsouth;
 import com.dbdata.data.northernreconstruction;
 import com.dbdata.data.vostok;
+import com.dbdata.data.user;
 
 import com.dbdata.service.Dataservice;
 
@@ -143,5 +144,10 @@ public class DataController {
     @GetMapping("vostok")
     public List<vostok> getVostok() {
         return dataservice.getVostok();
+    }
+
+    @GetMapping("user")
+    public List<user> getUser() {
+        return dataservice.getUser();
     }
 }

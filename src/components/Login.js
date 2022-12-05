@@ -63,7 +63,10 @@ const Login = () => {
             />
           </div>
           <p class="forgot">
-            <>No User? </> <a href="/SignUp">Sign Up.</a>
+            <>No User? </>{" "}
+            <a class="a1" href="/SignUp">
+              Sign Up.
+            </a>
           </p>
           <button type="submit" class="btn-1" onClick={() => sendLogin()}>
             Log In
