@@ -14,11 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dbdata.data.User;
 import com.dbdata.service.SecurityService;
+import com.dbdata.repo.PersonRepo;
 
 @RestController
 public class SecurityRestApi {
     @Autowired
     SecurityService secService;
+
+    @Autowired
+    PersonRepo pRepo;
 
     @PostMapping("/register")
     public ResponseEntity<String> register(
@@ -31,8 +35,7 @@ public class SecurityRestApi {
     @PostMapping("/login")
     public ResponseEntity<String> login(
             @RequestParam String uname,
-            @RequestParam String pw,
-            int status) {
+            @RequestParam String pw) {
         String token = secService.login(uname, pw);
 
         if (token == null) {
@@ -43,8 +46,19 @@ public class SecurityRestApi {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteByName(@RequestParam(value = "uname") String uname) {
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> deleteByName(
+            @RequestParam(value = "uname") String uname,
+            @RequestHeader("Authorization") String bearer) {
+
+        if (bearer.startsWith("bearer")) {
+            String token = bearer.split(" ")[1];
+            String username = secService.validateJwt(token);
+            if (username != null) {
+                pRepo.deleteByUsername(uname);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
     @GetMapping("/private")
