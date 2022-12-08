@@ -1,5 +1,8 @@
 package com.dbdata.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -34,6 +37,11 @@ public class SecurityService {
     public User register(String uname, String pw) {
 
         User u = new User(uname, myEncoder.encode(pw));
+
+        User existingUser = repo.findByUsername(uname);
+        if (existingUser != null && existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()) {
+            return null;
+        }
         repo.save(u);
         return u;
     }

@@ -29,6 +29,10 @@ public class SecurityRestApi {
             @RequestParam String uname,
             @RequestParam String pw) {
         User u = secService.register(uname, pw);
+        if (u == null) {
+            String e = "Username " + uname + " already exists!";
+            return new ResponseEntity<>(e, HttpStatus.FORBIDDEN);
+        }
         return new ResponseEntity<>(u.username, HttpStatus.OK);
     }
 
