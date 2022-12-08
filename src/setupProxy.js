@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = app => {
     app.use(
-        createProxyMiddleware('/src/Chart/Test2.js', //uus proxy uudelle chartille eli muuten sama mutta vaihtaa oikian reitin filee ja laittaa sen tuohon module.exportin  sisää
+        createProxyMiddleware('/src/Chart/annglobal.js', //uus proxy uudelle chartille eli muuten sama mutta vaihtaa oikian reitin filee ja laittaa sen tuohon module.exportin  sisää
         {
             target: 'http://localhost:8080',
             changeOrigin: true
