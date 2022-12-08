@@ -2,10 +2,10 @@ package com.dbdata.rest;
 
 import java.util.Base64;
 
-//import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dbdata.data.User;
 import com.dbdata.service.SecurityService;
+import com.dbdata.repo.PersonRepo;
 
 @RestController
 public class SecurityRestApi {
     @Autowired
     SecurityService secService;
 
-    @PostMapping("register")
+    @Autowired
+    PersonRepo pRepo;
+
+    @PostMapping("/register")
     public ResponseEntity<String> register(
             @RequestParam String uname,
             @RequestParam String pw) {
@@ -28,7 +32,7 @@ public class SecurityRestApi {
         return new ResponseEntity<>(u.username, HttpStatus.OK);
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<String> login(
             @RequestParam String uname,
             @RequestParam String pw) {
@@ -41,7 +45,23 @@ public class SecurityRestApi {
         return new ResponseEntity<>(token, HttpStatus.OK);
     }
 
-    @GetMapping("private")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteByName(
+            @RequestParam(value = "uname") String uname,
+            @RequestHeader("Authorization") String bearer) {
+
+        if (bearer.startsWith("bearer")) {
+            String token = bearer.split(" ")[1];
+            String username = secService.validateJwt(token);
+            if (username != null) {
+                pRepo.deleteByUsername(uname);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    }
+
+    @GetMapping("/private")
     public ResponseEntity<String> getPrivateData(@RequestHeader("Authorization") String bearer) {
 
         if (bearer.startsWith("Bearer")) {
@@ -55,7 +75,7 @@ public class SecurityRestApi {
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
 
-    @PostMapping("loginbasic")
+    @PostMapping("/loginbasic")
     public ResponseEntity<String> loginBasic(@RequestHeader("Authorization") String basicAuth) {
 
         String token = null;

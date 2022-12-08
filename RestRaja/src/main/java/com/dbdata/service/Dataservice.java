@@ -16,7 +16,6 @@ public class Dataservice {
 
     @Autowired
     Datarepository repo;
-    @Autowired
     AnnGlobalRepo AnnGlobalRepo;
     @Autowired
     AnnNorthRepo AnnNorthRepo;
@@ -54,8 +53,6 @@ public class Dataservice {
     NorthernReconstRepo northernReconstRepo;
     @Autowired
     VostokRepo vostokRepo;
-    @Autowired
-    UserRepo userRepo;
 
     public List<TestTable> getTable() {
         return repo.findAll();
@@ -135,9 +132,5 @@ public class Dataservice {
 
     public List<vostok> getVostok() {
         return vostokRepo.findAll();
-    }
-
-    public List<user> getUser() {
-        return userRepo.findAll();
     }
 }

@@ -8,21 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vostok")
-public class vostok {
+@Table(name = "user")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int airAge;
+    @Column(name = "id_user")
+    public Long idUser;
+    @Column(name = "username")
+    public String username;
+    @Column(name = "password")
+    public String password;
 
-    @Column(name = "coConse")
-    public double coConse;
-        this.password = pw;
-    }
-
-    public user(String username, String pw, int status) {
+    public User(String username, String pw) {
         this.username = username;
         this.password = pw;
-        this.status = status;
     }
 
 }

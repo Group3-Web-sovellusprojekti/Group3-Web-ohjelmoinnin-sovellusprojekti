@@ -9,6 +9,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.dbdata.data.User;
 import com.dbdata.repo.PersonRepo;
 
 @Service
@@ -46,7 +47,7 @@ public class SecurityService {
      */
     public String login(String uname, String pw) {
 
-        User u = repo.findById(uname).orElse(null);
+        User u = repo.findByUsername(uname);
 
         if (u == null || !myEncoder.matches(pw, u.password)) {
             return null;
@@ -56,24 +57,17 @@ public class SecurityService {
         return JWT.create().withSubject(u.username).sign(alg);
     }
 
-    public void deleteUser(String uname) {
+    public String deleteUser(String uname, String pw) {
 
-        repo.deleteById(uname);
-    }
+        User u = repo.findByUsername(uname);
+        String s = "success";
 
-    public int userStatus(String uname, int status) {
-        User u = repo.findById(uname).orElse(null);
-        u.status = status;
-
-        if (status == 1) {
-            u.status = 0;
-            repo.save(u);
-            return status;
+        if (!myEncoder.matches(pw, u.password)) {
+            return null;
         }
 
-        u.status = 1;
-        repo.save(u);
-        return status;
+        repo.deleteById(u.idUser);
+        return s;
     }
 
     /**
