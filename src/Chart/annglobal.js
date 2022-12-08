@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
- function Test2() {
+ function annglobal() {
 
   const [data,setData] = useState([])      //luodaan data olio ja siihen usestate
 
@@ -73,4 +73,4 @@ import axios from 'axios';
     </div>
   );
   }                                                     //määritellään chartin koko ja kutsutaan options ja chart            
-  export default Test2;
+  export default annglobal;
