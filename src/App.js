@@ -12,6 +12,7 @@ import Settings from "./components/Settings";
 import Test from "./Chart/Test";
 import Test2 from "./Chart/Test2";
 
+
 function App() {
   return (
     <>
