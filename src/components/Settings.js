@@ -7,13 +7,12 @@ export default function Settings() {
   return (
     <div>
       <h2>Delete user</h2>
-      <form onSubmit={handleDelete}>
-        <div>
-          Username <br />
-          <input type="text" name="username" />
-          <button type="submit">Delete</button>
-        </div>
-      </form>
+
+      <div>
+        Username <br />
+        <input type="text" name="username" />
+        <button type="submit">Delete</button>
+      </div>
     </div>
   );
 }

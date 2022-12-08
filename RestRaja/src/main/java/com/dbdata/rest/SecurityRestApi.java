@@ -24,7 +24,7 @@ public class SecurityRestApi {
     @Autowired
     PersonRepo pRepo;
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public ResponseEntity<String> register(
             @RequestParam String uname,
             @RequestParam String pw) {
