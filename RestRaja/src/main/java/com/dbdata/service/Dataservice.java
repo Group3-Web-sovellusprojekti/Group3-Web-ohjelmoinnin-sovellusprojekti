@@ -57,23 +57,41 @@ public class Dataservice {
 
     @Autowired
     AnnGlobalRepo AnnGlobalRepo;
+    @Autowired
     AnnNorthRepo AnnNorthRepo;
+    @Autowired
     AnnSouthRepo AnnSouthRepo;
+    @Autowired
     MonGlobalRepo MonGlobalRepo;
+    @Autowired
     MonNorthRepo MonNorhtRepo;
+    @Autowired
     MonSouthRepo MonSouthRepo;
+    @Autowired
     AntarticIceRepo antarticIceRepo;
+    @Autowired
     CoEmissionCountryRepo coEmissionCountryRepo;
+    @Autowired
     CoEmissMtcRepo coEmissMtcRepo;
+    @Autowired
     EmissSectorRepo emissSectorRepo;
+    @Autowired
     EvolutionCoRepo evolutionCoRepo;
+    @Autowired
     EvolutionTempRepo evolutionTempRepo;
+    @Autowired
     HumanEvoRepo humanEvoRepo;
+    @Autowired
     LawDome1Repo lawDome1Repo;
+    @Autowired
     LawDome2Repo lawDome2Repo;
+    @Autowired
     LawDome3Repo lawDome3Repo;
+    @Autowired
     MaunaLoaRepo maunaLoaRepo;
+    @Autowired
     NorthernReconstRepo northernReconstRepo;
+    @Autowired
     VostokRepo vostokRepo;
 
     public List<TestTable> getTable() {
