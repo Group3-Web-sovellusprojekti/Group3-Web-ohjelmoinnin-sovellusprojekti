@@ -6,9 +6,13 @@ import axios from "axios";
 export default function Settings() {
   /*
   const deleteUser = async (id) => {
-    await axios.delete("http://localhost:8080/user/");
+    await axios.delete("http://localhost:8080/testtable/0/delete").then(function(response){
+      console.log(response.data);
+      get
+    })
   };
-*/
+  */
+
   return (
     <div class="col-6">
       <div className="Settings">
@@ -28,7 +32,12 @@ export default function Settings() {
                 <h3>Delete user</h3>
                 <a>Password: </a>
                 <input></input>
-                <button class="btn-del"> Delete user </button>
+                <button
+                  class="btn-del"
+                  /*onClick={() => deleteUser(testtable.id)}*/
+                >
+                  Delete user
+                </button>
               </div>
             </Popup>
           </li>
