@@ -2,6 +2,7 @@ package com.dbdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -47,7 +48,7 @@ public class SecurityService {
      */
     public String login(String uname, String pw) {
 
-        User u = repo.findById(uname).orElse(null);
+        User u = repo.findByUsername(uname);
 
         if (u == null || !myEncoder.matches(pw, u.password)) {
             return null;
@@ -55,26 +56,6 @@ public class SecurityService {
 
         Algorithm alg = Algorithm.HMAC256(jwtKey);
         return JWT.create().withSubject(u.username).sign(alg);
-    }
-
-    public void deleteUser(String uname) {
-
-        repo.deleteById(uname);
-    }
-
-    public int userStatus(String uname, int status) {
-        User u = repo.findById(uname).orElse(null);
-        u.status = status;
-
-        if (status == 1) {
-            u.status = 0;
-            repo.save(u);
-            return status;
-        }
-
-        u.status = 1;
-        repo.save(u);
-        return status;
     }
 
     /**
