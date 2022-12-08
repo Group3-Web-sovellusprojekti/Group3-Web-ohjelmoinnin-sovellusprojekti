@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SignUp() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div class="col-6">
       <div class="tab-content">
@@ -9,18 +13,48 @@ export default function SignUp() {
 
           <form action="/" method="post">
             <div class="field-wrap">
-              <label>Username:</label>
-              <input type="text" required autocomplete="off" />
+              <label htmlFor="username"> Username:</label>
+              <input
+                class="input-1"
+                type="text"
+                required
+                autocomplete="off"
+                id="username"
+                value={username}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
             </div>
 
             <div class="field-wrap">
-              <label>Email Address:</label>
-              <input type="email" required autocomplete="off" />
+              <label htmlFor="email">Email Address:</label>
+              <input
+                class="input-1"
+                type="email"
+                required
+                autocomplete="off"
+                id="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
 
             <div class="field-wrap">
-              <label>Set A Password:</label>
-              <input type="password" required autocomplete="off" />
+              <label htmlFor="password">Set A Password:</label>
+              <input
+                class="input-1"
+                type="password"
+                required
+                autocomplete="off"
+                id="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </div>
 
             <button type="submit" class="btn-1">
