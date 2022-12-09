@@ -1,9 +1,22 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const handleSignupSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event.target.username.value);
+    console.log(event.target.password.value);
+
+    try {
+      const result = await axios.post("http://localhost:8080/register", {
+        username: event.target.username.value,
+        password: event.target.password.value,
+      });
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div class="col-6">
@@ -11,50 +24,14 @@ export default function SignUp() {
         <div id="signup">
           <h2>Sign Up</h2>
 
-          <form action="/" method="post">
-            <div class="field-wrap">
-              <label htmlFor="username"> Username:</label>
-              <input
-                class="input-1"
-                type="text"
-                required
-                autocomplete="off"
-                id="username"
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
+          <form onSubmit={handleSignupSubmit}>
+            <div>
+              username <br />
+              <input type="text" name="username" />
             </div>
-
-            <div class="field-wrap">
-              <label htmlFor="email">Email Address:</label>
-              <input
-                class="input-1"
-                type="email"
-                required
-                autocomplete="off"
-                id="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </div>
-
-            <div class="field-wrap">
-              <label htmlFor="password">Set A Password:</label>
-              <input
-                class="input-1"
-                type="password"
-                required
-                autocomplete="off"
-                id="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+            <div>
+              Password <br />
+              <input type="text" name="password" />
             </div>
 
             <button type="submit" class="btn-1">
