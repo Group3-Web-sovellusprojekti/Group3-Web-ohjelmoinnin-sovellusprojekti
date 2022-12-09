@@ -62,14 +62,10 @@ public class SecurityService {
         return JWT.create().withSubject(u.username).sign(alg);
     }
 
-    public String deleteUser(String uname, String pw) {
+    public String deleteUser(String uname) {
 
         User u = repo.findByUsername(uname);
-        String s = "success";
-
-        if (!myEncoder.matches(pw, u.password)) {
-            return null;
-        }
+        String s = "User delete successful";
 
         repo.deleteById(u.idUser);
         return s;
