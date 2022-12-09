@@ -62,6 +62,13 @@ public class SecurityService {
         return JWT.create().withSubject(u.username).sign(alg);
     }
 
+    /**
+     * Delete user. Return String and delete user if authorization successful.
+     * 
+     * @param uname
+     * @param pw
+     * @return
+     */
     public String deleteUser(String uname) {
 
         User u = repo.findByUsername(uname);
