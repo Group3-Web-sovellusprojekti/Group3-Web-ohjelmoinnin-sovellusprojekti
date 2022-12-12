@@ -117,7 +117,7 @@ html {
     background: none;
     cursor: pointer;
     border: 3px solid #00D8FF;
-    color: #fff;
+    /* color: #fff; */
     float: left;
     font-weight: bold;
     margin: 2px;
@@ -179,7 +179,7 @@ html {
   [class*="col-"] {
     float: left;
     padding: 15px;
-    color: #FFF;
+    /* color: #FFF; */
     width: 130%;
   }
   

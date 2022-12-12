@@ -16,6 +16,7 @@ public class Dataservice {
 
     @Autowired
     Datarepository repo;
+    @Autowired
     AnnGlobalRepo AnnGlobalRepo;
     @Autowired
     AnnNorthRepo AnnNorthRepo;

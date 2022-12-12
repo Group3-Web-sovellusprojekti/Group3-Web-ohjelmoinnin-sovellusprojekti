@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class annglobal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int timeA;
+    public String timeA;
 
     @Column(name = "global")
     public double global;
@@ -23,7 +23,7 @@ public class annglobal {
     public annglobal() {
     }
 
-    public annglobal(int timeA, double global, double time) {
+    public annglobal(String timeA, double global, double time) {
         this.timeA = timeA;
         this.global = global;
         this.time = time;
