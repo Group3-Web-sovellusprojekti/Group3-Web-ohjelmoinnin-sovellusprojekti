@@ -1,25 +1,51 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Constants from "./Constants.json";
 
 export default function SignUp() {
+  const handleSignupSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event.target.username.value);
+    console.log(event.target.password.value);
+    console.log(
+      Constants.API_ADDRESS +
+        "/register?uname=" +
+        event.target.username.value +
+        "&pw=" +
+        event.target.password.value
+    );
+
+    try {
+      const result = await axios.post(
+        Constants.API_ADDRESS +
+          "/register?uname=" +
+          event.target.username.value +
+          "&pw=" +
+          event.target.password.value
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="col-6">
-      <div className="tab-content">
+    <div class="col-6">
+      <div class="tab-content">
         <div id="signup">
           <h2>Sign Up</h2>
 
-          <form>
-            <div>
-              username <br />
-              <input type="text" name="uname" />
-            </div>
-            <div>
-              Password <br />
-              <input type="text" name="pw" />
+          <form onSubmit={handleSignupSubmit}>
+            <div class="field-wrap">
+              <label> Username:</label>
+              <input type="text" name="username" />
             </div>
 
-            <button type="submit" className="btn-1">
+            <div class="field-wrap">
+              <label>Set A Password:</label>
+              <input type="text" name="password" />
+            </div>
+
+            <button type="submit" class="btn-1">
               Get Started
             </button>
           </form>

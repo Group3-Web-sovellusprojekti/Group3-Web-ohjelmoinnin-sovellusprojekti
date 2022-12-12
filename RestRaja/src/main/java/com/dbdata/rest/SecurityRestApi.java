@@ -24,11 +24,15 @@ public class SecurityRestApi {
     @Autowired
     PersonRepo pRepo;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<String> register(
             @RequestParam String uname,
             @RequestParam String pw) {
         User u = secService.register(uname, pw);
+        if (u == null) {
+            String e = "Username " + uname + " already exists!";
+            return new ResponseEntity<>(e, HttpStatus.FORBIDDEN);
+        }
         return new ResponseEntity<>(u.username, HttpStatus.OK);
     }
 
@@ -45,17 +49,17 @@ public class SecurityRestApi {
         return new ResponseEntity<>(token, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete")
     public ResponseEntity<String> deleteByName(
-            @RequestParam(value = "uname") String uname,
+            @RequestParam String uname,
             @RequestHeader("Authorization") String bearer) {
 
         if (bearer.startsWith("bearer")) {
             String token = bearer.split(" ")[1];
             String username = secService.validateJwt(token);
             if (username != null) {
-                pRepo.deleteByUsername(uname);
-                return new ResponseEntity<>(HttpStatus.OK);
+                String deleteSuccess = secService.deleteUser(uname);
+                return new ResponseEntity<>(deleteSuccess, HttpStatus.OK);
             }
         }
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);

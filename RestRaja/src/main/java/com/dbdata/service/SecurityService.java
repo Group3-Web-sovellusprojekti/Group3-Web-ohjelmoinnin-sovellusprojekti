@@ -2,6 +2,7 @@ package com.dbdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -27,13 +28,18 @@ public class SecurityService {
     /**
      * Register new user or update existing one
      * 
-     * @param uname
-     * @param pw
+     * @param username
+     * @param password
      * @return
      */
-    public User register(String uname, String pw) {
+    public User register(String username, String password) {
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+        User u = new User(username, enc.encode(password));
 
-        User u = new User(uname, myEncoder.encode(pw));
+        User existingUser = repo.findByUsername(username);
+        if (existingUser != null && existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()) {
+            return null;
+        }
         repo.save(u);
         return u;
     }
@@ -57,14 +63,17 @@ public class SecurityService {
         return JWT.create().withSubject(u.username).sign(alg);
     }
 
-    public String deleteUser(String uname, String pw) {
+    /**
+     * Delete user. Return String and delete user if authorization successful.
+     * 
+     * @param uname
+     * @param pw
+     * @return
+     */
+    public String deleteUser(String uname) {
 
         User u = repo.findByUsername(uname);
-        String s = "success";
-
-        if (!myEncoder.matches(pw, u.password)) {
-            return null;
-        }
+        String s = "User delete successful";
 
         repo.deleteById(u.idUser);
         return s;

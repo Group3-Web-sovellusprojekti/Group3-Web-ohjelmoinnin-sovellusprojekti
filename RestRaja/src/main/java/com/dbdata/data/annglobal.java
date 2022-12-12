@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "annglobal")
 public class annglobal {
     @Id
+    @Column(name = "timeA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int timeA;
 
@@ -18,12 +19,12 @@ public class annglobal {
     public double global;
 
     @Column(name = "time")
-    public double time;
+    public int time;
 
     public annglobal() {
     }
 
-    public annglobal(int timeA, double global, double time) {
+    public annglobal(int timeA, double global, int time) {
         this.timeA = timeA;
         this.global = global;
         this.time = time;

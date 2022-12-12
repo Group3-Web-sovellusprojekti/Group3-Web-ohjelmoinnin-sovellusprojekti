@@ -1,14 +1,11 @@
 package com.dbdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.dbdata.data.*;
 import com.dbdata.repo.*;
 
-//import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,6 +13,7 @@ public class Dataservice {
 
     @Autowired
     Datarepository repo;
+    @Autowired
     AnnGlobalRepo AnnGlobalRepo;
     @Autowired
     AnnNorthRepo AnnNorthRepo;
@@ -53,6 +51,8 @@ public class Dataservice {
     NorthernReconstRepo northernReconstRepo;
     @Autowired
     VostokRepo vostokRepo;
+
+    /*** Repository to find all datasets ***/
 
     public List<TestTable> getTable() {
         return repo.findAll();
