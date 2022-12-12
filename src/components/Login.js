@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   //const [jwt, setJwt] = uselocalState("", "jwt");
   function sendLogin() {
     const reqBody = {
@@ -33,15 +32,15 @@ const Login = () => {
   }
 
   return (
-    <div class="col-6">
+    <div className="col-6">
       <div id="login">
         <h2>Welcome Back</h2>
 
         <form>
-          <div class="field-wrap">
+          <div className="field-wrap">
             <label htmlFor="username">Username:</label>
             <input
-              class="input-1"
+              className="input-1"
               type="text"
               required
               autocomplete="off"
@@ -51,10 +50,10 @@ const Login = () => {
             />
           </div>
 
-          <div class="field-wrap">
+          <div className="field-wrap">
             <label htmlFor="password">Password:</label>
             <input
-              class="input-1"
+              className="input-1"
               type="password"
               required
               autocomplete="off"
@@ -63,13 +62,10 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <p class="forgot">
-            <>No User? </>{" "}
-            <a class="a1" href="/SignUp">
-              Sign Up.
-            </a>
+          <p className="forgot">
+            <>No User? </> <a href="/SignUp">Sign Up.</a>
           </p>
-          <button type="submit" class="btn-1" onClick={() => sendLogin()}>
+          <button type="submit" className="btn-1" onClick={() => sendLogin()}>
             Log In
           </button>
         </form>

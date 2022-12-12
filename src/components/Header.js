@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div class="header">
-      <h1 class="headername">Nettisivu :D</h1>
+    <div className="header">
+      <h1> Nettisivu :D</h1>
     </div>
   );
 }
