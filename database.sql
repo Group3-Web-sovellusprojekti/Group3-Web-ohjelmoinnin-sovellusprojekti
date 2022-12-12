@@ -455,9 +455,9 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `ilmastoteht`.`norhernreconstruction`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ilmastoteht`.`norhernreconstruction` (
+CREATE TABLE IF NOT EXISTS `ilmastoteht`.`northernreconstruction` (
   `timeA` INT(11) NOT NULL,
-  `norhernReconst` DOUBLE NULL DEFAULT NULL,
+  `northern_reconst` DOUBLE NULL DEFAULT NULL,
   PRIMARY KEY (`timeA`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;

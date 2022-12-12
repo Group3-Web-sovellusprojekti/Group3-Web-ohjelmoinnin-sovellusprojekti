@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.dbdata.data.annnorth;
 
 @Repository
-public interface AnnNorthRepo extends JpaRepository<annnorth, Integer> {
+public interface AnnNorthRepo extends JpaRepository<annnorth, String> {
 
 }

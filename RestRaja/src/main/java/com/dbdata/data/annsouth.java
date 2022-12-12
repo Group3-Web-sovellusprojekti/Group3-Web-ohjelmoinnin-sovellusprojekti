@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class annsouth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int timeA;
+    public String timeA;
 
     @Column(name = "south")
     public double south;
@@ -23,7 +23,7 @@ public class annsouth {
     public annsouth() {
     }
 
-    public annsouth(int timeA, double south, double time) {
+    public annsouth(String timeA, double south, double time) {
         this.timeA = timeA;
         this.south = south;
         this.time = time;

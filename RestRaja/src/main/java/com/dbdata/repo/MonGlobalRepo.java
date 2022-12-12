@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.dbdata.data.monglobal;
 
 @Repository
-public interface MonGlobalRepo extends JpaRepository<monglobal, Integer> {
+public interface MonGlobalRepo extends JpaRepository<monglobal, String> {
 
 }
