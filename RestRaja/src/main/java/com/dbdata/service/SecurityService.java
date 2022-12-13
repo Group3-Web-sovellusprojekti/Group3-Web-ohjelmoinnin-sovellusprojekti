@@ -66,7 +66,7 @@ public class SecurityService {
      * Delete user. Return String and delete user if authorization successful.
      * 
      * @param uname
-     * @param pw
+     * @header token
      * @return
      */
     public String deleteUser(String uname) {

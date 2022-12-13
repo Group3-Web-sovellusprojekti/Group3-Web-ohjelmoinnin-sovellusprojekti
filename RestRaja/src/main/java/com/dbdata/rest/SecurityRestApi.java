@@ -5,6 +5,7 @@ import java.util.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.dbdata.data.User;
 import com.dbdata.service.SecurityService;
 import com.dbdata.repo.PersonRepo;
 
+@CrossOrigin
 @RestController
 public class SecurityRestApi {
     @Autowired
@@ -26,11 +28,11 @@ public class SecurityRestApi {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(
-            @RequestParam String uname,
-            @RequestParam String pw) {
-        User u = secService.register(uname, pw);
+            @RequestParam String username,
+            @RequestParam String password) {
+        User u = secService.register(username, password);
         if (u == null) {
-            String e = "Username " + uname + " already exists!";
+            String e = "Username " + username + " already exists!";
             return new ResponseEntity<>(e, HttpStatus.FORBIDDEN);
         }
         return new ResponseEntity<>(u.username, HttpStatus.OK);
