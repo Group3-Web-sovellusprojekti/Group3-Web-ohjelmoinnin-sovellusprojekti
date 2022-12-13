@@ -93,6 +93,12 @@ html {
     background-color: #00D8FF;
     padding: 15px;
   }
+
+  .isloggedin {
+    float: right;
+    font-size:medium;
+    padding: 7px;
+  }
   
   .headername {
     color: #202435;

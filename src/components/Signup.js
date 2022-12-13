@@ -34,8 +34,8 @@ export default function SignUp() {
   };
 
   return (
-    <div class="col-6">
-      <div class="tab-content">
+    <div className="col-6">
+      <div className="tab-content">
         <div id="signup">
           <h2>Sign Up</h2>
 
@@ -45,12 +45,12 @@ export default function SignUp() {
               <input className="input-1" type="text" name="username" />
             </div>
 
-            <div class="field-wrap">
+            <div className="field-wrap">
               <label>Set A Password:</label>
               <input className="input-1" type="text" name="password" />
             </div>
 
-            <button type="submit" class="btn-1">
+            <button type="submit" className="btn-1">
               Get Started
             </button>
           </form>

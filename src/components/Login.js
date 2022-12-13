@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Constants from "./Constants.json";
 
-export default function Login() {
+export default function Login(props) {
   const [loginProcessState, setLoginProcessState] = useState("idle");
 
   const navigate = useNavigate();
@@ -20,6 +20,9 @@ export default function Login() {
           "&pw=" +
           event.target.password.value
       );
+      console.log(result);
+      const receivedJWT = result.data.token;
+      props.login(receivedJWT);
       setLoginProcessState("loginSuccess");
       setTimeout(() => {
         navigate("/", { replace: true });
@@ -34,7 +37,7 @@ export default function Login() {
   switch (loginProcessState) {
     case "idle":
       loginUIControls = (
-        <button type="submit" class="btn-1">
+        <button type="submit" className="btn-1">
           Log In
         </button>
       );
@@ -61,7 +64,7 @@ export default function Login() {
   }
 
   return (
-    <div class="col-6">
+    <div className="col-6">
       <div id="login">
         <h2>Welcome Back</h2>
 
@@ -71,11 +74,11 @@ export default function Login() {
             <input className="input-1" type="text" name="username" />
           </div>
 
-          <div class="field-wrap">
+          <div className="field-wrap">
             <label>Set A Password:</label>
             <input className="input-1" type="text" name="password" />
           </div>
-          <p class="forgot">
+          <p className="forgot">
             <>No User? </>{" "}
             <a href="/SignUp" className="a1">
               Sign Up.

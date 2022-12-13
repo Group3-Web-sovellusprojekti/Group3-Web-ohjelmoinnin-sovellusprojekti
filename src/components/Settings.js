@@ -5,8 +5,6 @@ import axios from "axios";
 export default function Settings() {
   return (
     <div>
-      <h2>Delete user</h2>
-
       <div>
         Username <br />
         <input type="text" name="username" />
