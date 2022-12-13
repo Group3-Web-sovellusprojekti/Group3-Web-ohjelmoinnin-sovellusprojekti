@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Constants from "./Constants.json";
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
     console.log(event.target.username.value);
@@ -23,6 +26,8 @@ export default function SignUp() {
           "&pw=" +
           event.target.password.value
       );
+      console.log(result);
+      navigate("/login", { replace: true });
     } catch (error) {
       console.error(error);
     }
@@ -35,14 +40,14 @@ export default function SignUp() {
           <h2>Sign Up</h2>
 
           <form onSubmit={handleSignupSubmit}>
-            <div class="field-wrap">
+            <div className="field-wrap">
               <label> Username:</label>
-              <input type="text" name="username" />
+              <input className="input-1" type="text" name="username" />
             </div>
 
             <div class="field-wrap">
               <label>Set A Password:</label>
-              <input type="text" name="password" />
+              <input className="input-1" type="text" name="password" />
             </div>
 
             <button type="submit" class="btn-1">

@@ -47,15 +47,15 @@ public class SecurityService {
     /**
      * Login user. Return token or null if not found or wrong password.
      * 
-     * @param uname
-     * @param pw
+     * @param username
+     * @param password
      * @return
      */
-    public String login(String uname, String pw) {
+    public String login(String username, String password) {
 
-        User u = repo.findByUsername(uname);
+        User u = repo.findByUsername(username);
 
-        if (u == null || !myEncoder.matches(pw, u.password)) {
+        if (u == null || !myEncoder.matches(password, u.password)) {
             return null;
         }
 

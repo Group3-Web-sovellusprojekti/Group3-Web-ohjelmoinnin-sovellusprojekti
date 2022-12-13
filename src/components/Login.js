@@ -1,77 +1,90 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import Constants from "./Constants.json";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  //const [jwt, setJwt] = uselocalState("", "jwt");
-  function sendLogin() {
-    const reqBody = {
-      username: username,
-      password: password,
-    };
+export default function Login() {
+  const [loginProcessState, setLoginProcessState] = useState("idle");
 
-    fetch("api/auth/login", {
-      headers: {
-        "content-Type": "application/json",
-      },
-      method: "post",
-      body: JSON.stringify(reqBody),
-    })
-      .then((response) => {
-        if (response.status == 200)
-          return Promise.all([response.json(), response.headers]);
-        else return Promise.reject("Invalid log in attempt");
-      })
-      .then(([body, headers]) => {
-        //setJwt(headers.get("authorization"));
-        window.location.href = "/";
-      })
-      .catch((message) => {
-        alert(message);
-      });
+  const navigate = useNavigate();
+
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    setLoginProcessState("processing");
+
+    try {
+      const result = await axios.post(
+        Constants.API_ADDRESS +
+          "/login?uname=" +
+          event.target.username.value +
+          "&pw=" +
+          event.target.password.value
+      );
+      setLoginProcessState("loginSuccess");
+      setTimeout(() => {
+        navigate("/", { replace: true });
+      }, 1500);
+    } catch (error) {
+      console.error(error);
+      setLoginProcessState("loginFailure");
+    }
+  };
+
+  let loginUIControls = null;
+  switch (loginProcessState) {
+    case "idle":
+      loginUIControls = (
+        <button type="submit" class="btn-1">
+          Log In
+        </button>
+      );
+      break;
+
+    case "processing":
+      loginUIControls = <span className="loginProcessing">Processing...</span>;
+      break;
+
+    case "loginSuccess":
+      loginUIControls = <span className="loginSuccess">Login Success</span>;
+      break;
+
+    case "loginFailure":
+      loginUIControls = (
+        <div>
+          <span className="loginFailure">Error</span>
+          <h1> </h1>
+          <button type="submit" className="btn-1">
+            Log In
+          </button>
+        </div>
+      );
   }
 
   return (
-    <div className="col-6">
+    <div class="col-6">
       <div id="login">
         <h2>Welcome Back</h2>
 
-        <form>
+        <form onSubmit={handleLoginSubmit}>
           <div className="field-wrap">
-            <label htmlFor="username">Username:</label>
-            <input
-              className="input-1"
-              type="text"
-              required
-              autocomplete="off"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+            <label> Username:</label>
+            <input className="input-1" type="text" name="username" />
           </div>
 
-          <div className="field-wrap">
-            <label htmlFor="password">Password:</label>
-            <input
-              className="input-1"
-              type="password"
-              required
-              autocomplete="off"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <div class="field-wrap">
+            <label>Set A Password:</label>
+            <input className="input-1" type="text" name="password" />
           </div>
-          <p className="forgot">
-            <>No User? </> <a href="/SignUp">Sign Up.</a>
+          <p class="forgot">
+            <>No User? </>{" "}
+            <a href="/SignUp" className="a1">
+              Sign Up.
+            </a>
           </p>
-          <button type="submit" className="btn-1" onClick={() => sendLogin()}>
-            Log In
-          </button>
+
+          {loginUIControls}
         </form>
       </div>
     </div>
   );
-};
-
-export default Login;
+}

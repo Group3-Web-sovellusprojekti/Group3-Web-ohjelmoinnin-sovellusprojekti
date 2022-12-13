@@ -20,6 +20,23 @@ html {
     color: #00D8FF;
   }
   
+ .loginProcessing {
+  font-size: larger;
+  font-weight: bold;
+ }
+
+  .loginSuccess{
+    font-size: larger;
+    font-weight: bold;
+    color: #51ff00;
+  }
+
+  .loginFailure {
+    font-size: larger;
+    font-weight: bold;
+    color: #ff3f79
+  }
+
   
   *, *:before, *:after {
     box-sizing: border-box;

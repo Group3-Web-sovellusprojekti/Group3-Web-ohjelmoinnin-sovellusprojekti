@@ -15,12 +15,12 @@ import { useState } from "react";
 function App() {
   return (
     <>
-      <Header />
+      <Header userLoggedIn={true} />
 
       <div className="container">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home userLoggedIn={true} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/settings" element={<Settings />} />
