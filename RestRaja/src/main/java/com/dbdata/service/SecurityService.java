@@ -1,8 +1,7 @@
-package com.security.auth;
+package com.dbdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -10,15 +9,17 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.dbdata.data.User;
+import com.dbdata.repo.PersonRepo;
 
 @Service
 public class SecurityService {
 
     @Autowired
-    PersonRepository repo;
+    PersonRepo repo;
 
     @Autowired
-    MyPasswordEncoder myEncoder;
+    PasswordEncoder myEncoder;
 
     @Value("${jwt.secret}")
     private String jwtKey;
@@ -33,6 +34,11 @@ public class SecurityService {
     public User register(String uname, String pw) {
 
         User u = new User(uname, myEncoder.encode(pw));
+
+        User existingUser = repo.findByUsername(uname);
+        if (existingUser != null && existingUser.getUsername() != null && !existingUser.getUsername().isEmpty()) {
+            return null;
+        }
         repo.save(u);
         return u;
     }
@@ -46,7 +52,7 @@ public class SecurityService {
      */
     public String login(String uname, String pw) {
 
-        User u = repo.findById(uname).orElse(null);
+        User u = repo.findByUsername(uname);
 
         if (u == null || !myEncoder.matches(pw, u.password)) {
             return null;
@@ -54,6 +60,19 @@ public class SecurityService {
 
         Algorithm alg = Algorithm.HMAC256(jwtKey);
         return JWT.create().withSubject(u.username).sign(alg);
+    }
+
+    public String deleteUser(String uname, String pw) {
+
+        User u = repo.findByUsername(uname);
+        String s = "success";
+
+        if (!myEncoder.matches(pw, u.password)) {
+            return null;
+        }
+
+        repo.deleteById(u.idUser);
+        return s;
     }
 
     /**

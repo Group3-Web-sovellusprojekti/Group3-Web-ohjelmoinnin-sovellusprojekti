@@ -5,46 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.dbdata.data.TestTable;
-import com.dbdata.data.annglobal;
-import com.dbdata.data.annnorth;
-import com.dbdata.data.annsouth;
-import com.dbdata.data.antarticice;
-import com.dbdata.data.coemisscountry;
-import com.dbdata.data.coemissmtc;
-import com.dbdata.data.emisssector;
-import com.dbdata.data.evolutionco;
-import com.dbdata.data.evolutiontemp;
-import com.dbdata.data.humanevo;
-import com.dbdata.data.lawdome1;
-import com.dbdata.data.lawdome2;
-import com.dbdata.data.lawdome3;
-import com.dbdata.data.maunaloa;
-import com.dbdata.data.monglobal;
-import com.dbdata.data.monnorth;
-import com.dbdata.data.monsouth;
-import com.dbdata.data.northernreconstruction;
-import com.dbdata.data.vostok;
-import com.dbdata.repo.Datarepository;
-import com.dbdata.repo.EmissSectorRepo;
-import com.dbdata.repo.EvolutionCoRepo;
-import com.dbdata.repo.EvolutionTempRepo;
-import com.dbdata.repo.HumanEvoRepo;
-import com.dbdata.repo.LawDome1Repo;
-import com.dbdata.repo.LawDome2Repo;
-import com.dbdata.repo.LawDome3Repo;
-import com.dbdata.repo.MaunaLoaRepo;
-import com.dbdata.repo.AnnGlobalRepo;
-import com.dbdata.repo.AnnNorthRepo;
-import com.dbdata.repo.AnnSouthRepo;
-import com.dbdata.repo.AntarticIceRepo;
-import com.dbdata.repo.CoEmissMtcRepo;
-import com.dbdata.repo.CoEmissionCountryRepo;
-import com.dbdata.repo.MonGlobalRepo;
-import com.dbdata.repo.MonNorthRepo;
-import com.dbdata.repo.MonSouthRepo;
-import com.dbdata.repo.NorthernReconstRepo;
-import com.dbdata.repo.VostokRepo;
+import com.dbdata.data.*;
+import com.dbdata.repo.*;
 
 //import java.util.ArrayList;
 import java.util.List;
@@ -54,26 +16,43 @@ public class Dataservice {
 
     @Autowired
     Datarepository repo;
-
     @Autowired
     AnnGlobalRepo AnnGlobalRepo;
+    @Autowired
     AnnNorthRepo AnnNorthRepo;
+    @Autowired
     AnnSouthRepo AnnSouthRepo;
+    @Autowired
     MonGlobalRepo MonGlobalRepo;
+    @Autowired
     MonNorthRepo MonNorhtRepo;
+    @Autowired
     MonSouthRepo MonSouthRepo;
+    @Autowired
     AntarticIceRepo antarticIceRepo;
+    @Autowired
     CoEmissionCountryRepo coEmissionCountryRepo;
+    @Autowired
     CoEmissMtcRepo coEmissMtcRepo;
+    @Autowired
     EmissSectorRepo emissSectorRepo;
+    @Autowired
     EvolutionCoRepo evolutionCoRepo;
+    @Autowired
     EvolutionTempRepo evolutionTempRepo;
+    @Autowired
     HumanEvoRepo humanEvoRepo;
+    @Autowired
     LawDome1Repo lawDome1Repo;
+    @Autowired
     LawDome2Repo lawDome2Repo;
+    @Autowired
     LawDome3Repo lawDome3Repo;
+    @Autowired
     MaunaLoaRepo maunaLoaRepo;
+    @Autowired
     NorthernReconstRepo northernReconstRepo;
+    @Autowired
     VostokRepo vostokRepo;
 
     public List<TestTable> getTable() {

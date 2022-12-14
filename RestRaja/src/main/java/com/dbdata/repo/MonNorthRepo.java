@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.dbdata.data.monnorth;
 
 @Repository
-public interface MonNorthRepo extends JpaRepository<monnorth, Integer> {
+public interface MonNorthRepo extends JpaRepository<monnorth, String> {
 
 }

@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Table;
 import javax.persistence.Table;
 
 @Entity
@@ -13,24 +12,20 @@ import javax.persistence.Table;
 public class annglobal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int time;
+    public String timeA;
 
-    @Column(name = "Anomaly (deg C)")
-    public double anomaly;
+    @Column(name = "global")
+    public double global;
 
-    @Column(name = "Lower confidence limit (2.5%)")
-    public double lowerconf;
-
-    @Column(name = "Upper confidence limit (97.5%)")
-    public double upperconf;
+    @Column(name = "time")
+    public double time;
 
     public annglobal() {
     }
 
-    public annglobal(int time, double anomaly, double lowerconf, double upperconf) {
+    public annglobal(String timeA, double global, double time) {
+        this.timeA = timeA;
+        this.global = global;
         this.time = time;
-        this.anomaly = anomaly;
-        this.lowerconf = lowerconf;
-        this.upperconf = upperconf;
     }
 }
