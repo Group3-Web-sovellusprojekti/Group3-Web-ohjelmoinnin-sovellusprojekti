@@ -14,10 +14,11 @@ import { useState } from "react";
 
 function App() {
   const [isUserloggedIn, setIsUserLoggedIn] = useState(false);
+  const [userJwt, setUserJwt] = useState(null);
 
   return (
     <>
-      <Header userLoggedIn={isUserloggedIn} />
+      <Header userLoggedIn={userJwt != null} />
 
       <div className="container">
         <Navbar />
@@ -26,13 +27,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/login"
-            element={
-              <Login
-                login={(newJWT) => {
-                  setIsUserLoggedIn(true);
-                }}
-              />
-            }
+            element={<Login login={(newJWT) => setUserJwt(newJWT)} />}
           />
           <Route path="/settings" element={<Settings />} />
           <Route path="/Test" element={<Test />} />

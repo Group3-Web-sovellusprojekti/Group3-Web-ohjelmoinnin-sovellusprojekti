@@ -13,15 +13,18 @@ export default function Login(props) {
     setLoginProcessState("processing");
 
     try {
-      const result = await axios.post(
+      const response = await axios.post(
         Constants.API_ADDRESS +
           "/login?uname=" +
           event.target.username.value +
           "&pw=" +
           event.target.password.value
       );
-      console.log(result);
-      const receivedJWT = result.data.token;
+      console.log(response);
+      console.log(response.data);
+      const receivedJWT = response.data;
+      localStorage.setItem("token", receivedJWT);
+
       props.login(receivedJWT);
       setLoginProcessState("loginSuccess");
       setTimeout(() => {

@@ -122,9 +122,33 @@ html {
   ul li{
     color: #00D8FF;
   }
+
+  .logOut{
+    color: white;
+    background-color: #202435;
+    font-weight: bold;
+    border-color: #00D8FF;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .logOut:hover{
+    color: #202435;
+    background-color: #00D8FF;
+  }
   
   .del-user{
     color: red;
+    background-color:#202435;
+    font-weight: bold;
+    border-color: red;
+    margin: 5px;
+    cursor: pointer;
+  }
+
+  .del-user:hover{
+    color: #202435;
+    background-color: red;
   }
   
   .btn-del {
