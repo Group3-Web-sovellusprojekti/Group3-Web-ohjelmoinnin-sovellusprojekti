@@ -23,8 +23,12 @@ export default function Login(props) {
       console.log(response);
       console.log(response.data);
       const receivedJWT = response.data;
+      const uname = event.target.username.value;
+
+      localStorage.setItem("nimi", uname);
       localStorage.setItem("token", receivedJWT);
 
+      props.uname(uname);
       props.login(receivedJWT);
       setLoginProcessState("loginSuccess");
       setTimeout(() => {

@@ -5,9 +5,7 @@ export default function Header(props) {
     <div className="header">
       <h1>
         Nettisivu :D
-        <a className="isloggedin">
-          {props.userLoggedIn ? " Logged in" : " Not logged in"}
-        </a>
+        <a className="isloggedin">{props.uName}</a>
       </h1>
     </div>
   );
