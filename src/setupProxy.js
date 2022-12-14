@@ -16,6 +16,14 @@ module.exports = app => {
             changeOrigin: true
         })
     )
+    app.use(
+        createProxyMiddleware('/src/components/Login.js', 
+        {
+            target: 'http://localhost:8080',
+            changeOrigin: true
+        })
+    )
+ 
 }
   //"proxy":"http://localhost:8080",
   //"homepage": "http://localhost:3000",

@@ -7,11 +7,10 @@ export const setAuthToken = receivedJWT => {
    else
        delete axios.defaults.headers.common["Authorization"];
 }
-import axios from 'axios';
  
-export const uname = uname => {
+export const setUsername = uname => {
    if (uname) {
-       axios.defaults.headers.common["Authorization"];
+       axios.defaults.headers.common["Authorization"] = "uname";
    }
    else
        delete axios.defaults.headers.common["Authorization"];

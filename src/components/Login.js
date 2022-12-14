@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Constants from "./Constants.json";
-import { setAuthToken, setUser } from "./setAuthToken()";
+import { setAuthToken, setUsername } from "./setAuthToken()";
 
 export default function Login(props) {
   const [loginProcessState, setLoginProcessState] = useState("idle");
@@ -28,7 +28,7 @@ export default function Login(props) {
       localStorage.setItem("receivedJWT", JSON.stringify(receivedJWT));
       localStorage.setItem("uname", uname);
       setAuthToken(receivedJWT);
-      setUser(uname);
+      setUsername(uname);
       props.login(token);
       setLoginProcessState("loginSuccess");
       setTimeout(() => {

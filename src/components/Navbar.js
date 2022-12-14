@@ -51,17 +51,7 @@ import { Link } from "react-router-dom";
             </li>           
             <li>
               <Link to="settings" class="btn-r">
-              <button onClick={handleOpen}>Settings</button>
-               {open ? (
-              <ul className="menu">
-            <li className="menu-item">
-            <button onClick={handleMenuOne}>Log Out</button>
-          </li>
-          <li className="menu-item">
-            <button onClick={handleMenuTwo}>Delete User</button>
-          </li>
-        </ul>
-      ) : null}     
+              <button onClick={handleOpen} class="btn-1">Settings</button>    
               </Link>
             </li>
             <li>

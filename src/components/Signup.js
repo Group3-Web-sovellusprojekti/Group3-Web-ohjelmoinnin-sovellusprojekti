@@ -27,7 +27,7 @@ export default function SignUp() {
           event.target.password.value
       );
       console.log(result);
-      navigate("/login", { replace: true });
+      navigate("/Login", { replace: true });
     } catch (error) {
       console.error(error);
     }

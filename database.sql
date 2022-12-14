@@ -466,7 +466,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `ilmastoteht`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ilmastoteht`.`user` (
+CREATE TABLE IF NOT EXISTS `ilmastoteht`.`person` (
   `id_User` INT(11) NOT NULL AUTO_INCREMENT,
   `user` VARCHAR(45) NULL DEFAULT NULL,
   `password` VARCHAR(255) NULL DEFAULT NULL,

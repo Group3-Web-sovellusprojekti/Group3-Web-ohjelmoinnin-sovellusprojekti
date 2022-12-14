@@ -13,15 +13,19 @@ import Test from "./Chart/Test";
 import Test2 from "./Chart/Test2";
 import V1 from "./Chart/V1";
 import V2 from "./Chart/V2";
+import { setAuthToken, setUsername } from "./components/setAuthToken()";
 
 
 function App() {
 
-  // const [token, setToken] = useState();
-
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  const receivedJWT = localStorage.getItem("receivedJWT");
+  if (receivedJWT) {
+      setAuthToken(receivedJWT);
+  }
+  const uname = localStorage.getItem("uname");
+  if (uname) {
+      setUsername(uname);
+  }
 
   return (
     <>

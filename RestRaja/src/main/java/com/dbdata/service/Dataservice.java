@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.dbdata.data.*;
 import com.dbdata.repo.*;
 
 //import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin
 @Service
 public class Dataservice {
 
