@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import Constants from "./Constants.json";
-import { setAuthToken, setUsername } from "./setAuthToken()";
+
 
 export default function Login(props) {
   const [loginProcessState, setLoginProcessState] = useState("idle");
@@ -15,7 +14,6 @@ export default function Login(props) {
 
     try {
       const response = await axios.post(
-        Constants.API_ADDRESS +
           "/login?uname=" +
           event.target.username.value +
           "&pw=" +

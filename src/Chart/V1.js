@@ -9,7 +9,7 @@ function V1() {
   const [data1, setData] = useState([]);
   const getData = () => {
     axios
-      .get("http://localhost:3000/annnorth")
+      .get("/annnorth")
       .then((response) => {
         console.log(response.data);
         setData(response.data);
@@ -26,7 +26,7 @@ function V1() {
   const [data2, setData2] = useState([]);
   const getData2 = () => {
     axios
-      .get("http://localhost:3000/annsouth")
+      .get("/annsouth")
       .then((response) => {
         console.log(response.data);
         setData2(response.data);
@@ -43,7 +43,7 @@ function V1() {
   const [data3, setData3] = useState([]);
   const getData3 = () => {
     axios
-      .get("http://localhost:3000/annglobal")
+      .get("/annglobal")
       .then((response) => {
         console.log(response.data);
         setData3(response.data);
@@ -60,7 +60,7 @@ function V1() {
   const [data4, setData4] = useState([]);
   const getData4 = () => {
     axios
-      .get("http://localhost:3000/monsouth")
+      .get("/monsouth")
       .then((response) => {
         console.log(response.data);
         setData4(response.data);
@@ -77,7 +77,7 @@ function V1() {
   const [data5, setData5] = useState([]);
   const getData5 = () => {
     axios
-      .get("http://localhost:3000/monglobal")
+      .get("/monglobal")
       .then((response) => {
         console.log(response.data);
         setData5(response.data);
@@ -94,7 +94,7 @@ function V1() {
   const [data6, setData6] = useState([]);
   const getData6 = () => {
     axios
-      .get("http://localhost:3000/monnorth")
+      .get("/monnorth")
       .then((response) => {
         console.log(response.data);
         setData6(response.data);
