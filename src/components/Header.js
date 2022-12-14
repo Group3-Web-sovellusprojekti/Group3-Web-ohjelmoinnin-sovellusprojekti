@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-
-export default function Header() {
+import React from "react";
+import { Link } from "react-router-dom";
+export default function Header(props) {
   return (
-    <div class="header">
-      <h1 class="headername">Nettisivu :D</h1>
-      <h2></h2>
+    <div className="header">
+      <h1>
+        Nettisivu :D
+        <a className="isloggedin">{props.uName}</a>
+      </h1>
     </div>
   );
 }

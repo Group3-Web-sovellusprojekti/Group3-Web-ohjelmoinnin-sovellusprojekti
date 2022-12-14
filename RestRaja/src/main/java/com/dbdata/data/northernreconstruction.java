@@ -8,21 +8,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "northernreconstruction")
+@Table(name = "northernreconstruction", schema= "ilmastoteht")
 public class northernreconstruction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int timeA;
+    public String timeA;
+    
+    @Column(name = "northern_reconst")
+    public double northern_reconst;
 
-    @Column(name = "northernReconst")
-    public double northernReconst;
 
     public northernreconstruction() {
     }
 
-    public northernreconstruction(int timeA, double northernReconst) {
+    public northernreconstruction(String timeA, double northern_reconst) {
         this.timeA = timeA;
-        this.northernReconst = northernReconst;
+        this.northern_reconst = northern_reconst;
+
 
     }
 }

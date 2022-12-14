@@ -1,63 +1,56 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Constants from "./Constants.json";
 
 export default function SignUp() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignupSubmit = async (event) => {
+    event.preventDefault();
+    console.log(event.target.username.value);
+    console.log(event.target.password.value);
+    console.log(
+      Constants.API_ADDRESS +
+        "/register?uname=" +
+        event.target.username.value +
+        "&pw=" +
+        event.target.password.value
+    );
+
+    try {
+      const result = await axios.post(
+        Constants.API_ADDRESS +
+          "/register?uname=" +
+          event.target.username.value +
+          "&pw=" +
+          event.target.password.value
+      );
+      console.log(result);
+      navigate("/login", { replace: true });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <div class="col-6">
-      <div class="tab-content">
+    <div className="col-6">
+      <div className="tab-content">
         <div id="signup">
           <h2>Sign Up</h2>
 
-          <form action="/" method="post">
-            <div class="field-wrap">
-              <label htmlFor="username"> Username:</label>
-              <input
-                class="input-1"
-                type="text"
-                required
-                autocomplete="off"
-                id="username"
-                value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
+          <form onSubmit={handleSignupSubmit}>
+            <div className="field-wrap">
+              <label> Username:</label>
+              <input className="input-1" type="text" name="username" />
             </div>
 
-            <div class="field-wrap">
-              <label htmlFor="email">Email Address:</label>
-              <input
-                class="input-1"
-                type="email"
-                required
-                autocomplete="off"
-                id="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
+            <div className="field-wrap">
+              <label>Set A Password:</label>
+              <input className="input-1" type="text" name="password" />
             </div>
 
-            <div class="field-wrap">
-              <label htmlFor="password">Set A Password:</label>
-              <input
-                class="input-1"
-                type="password"
-                required
-                autocomplete="off"
-                id="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-            </div>
-
-            <button type="submit" class="btn-1">
+            <button type="submit" className="btn-1">
               Get Started
             </button>
           </form>
@@ -66,3 +59,5 @@ export default function SignUp() {
     </div>
   );
 }
+
+

@@ -1,5 +1,7 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { ReactChild } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
@@ -10,19 +12,39 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Settings from "./components/Settings";
 import Test from "./Chart/Test";
+import Test2 from "./Chart/Test2";
+import V1 from "./Chart/V1";
+import V2 from "./Chart/V2";
 
 function App() {
+  const [isUserloggedIn, setIsUserLoggedIn] = useState(false);
+  const [userJwt, setUserJwt] = useState(null);
+  const [userName, setUsername] = useState(null);
+
   return (
     <>
-      <Header />
+      <div>
+        <Header userLoggedIn={userJwt != null} uName={userName} />
+      </div>
+      <Navbar />
       <div className="container">
-        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                login={(newJWT) => setUserJwt(newJWT)}
+                uname={(newUname) => setUsername(newUname)}
+              />
+            }
+          />
           <Route path="/settings" element={<Settings />} />
           <Route path="/Test" element={<Test />} />
+          <Route path="/Test2" element={<Test2 />} />
+          <Route path="/V1" element={<V1 />} />
+          <Route path="/V2" element={<V2 />} />
         </Routes>
       </div>
       <Footer />
