@@ -7,6 +7,7 @@ export default function Settings() {
   const handleLogOut = () => {
     localStorage.clear();
     console.log("user log out");
+    window.location.reload(false);
   };
 
   const handleDelUser = () => {

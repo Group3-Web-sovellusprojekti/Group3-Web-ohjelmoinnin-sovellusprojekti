@@ -3,6 +3,8 @@ import { Line } from "react-chartjs-2";
 import { Chart } from "chart.js/auto";
 import "chartjs-adapter-luxon";
 import axios from "axios";
+
+
 function V1() {
   const [data1, setData] = useState([]);
   const getData = () => {

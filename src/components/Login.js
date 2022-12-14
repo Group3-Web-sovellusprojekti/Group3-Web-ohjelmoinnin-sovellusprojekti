@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Constants from "./Constants.json";
+import { setAuthToken, setUsername } from "./setAuthToken()";
 
 export default function Login(props) {
   const [loginProcessState, setLoginProcessState] = useState("idle");
@@ -83,7 +84,7 @@ export default function Login(props) {
 
           <div className="field-wrap">
             <label>Set A Password:</label>
-            <input className="input-1" type="text" name="password" />
+            <input className="input-1" type="password" name="password" />
           </div>
           <p className="forgot">
             <>No User? </>{" "}

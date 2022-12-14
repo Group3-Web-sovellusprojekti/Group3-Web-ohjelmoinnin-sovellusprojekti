@@ -27,7 +27,7 @@ export default function SignUp() {
           event.target.password.value
       );
       console.log(result);
-      navigate("/login", { replace: true });
+      navigate("/Login", { replace: true });
     } catch (error) {
       console.error(error);
     }
@@ -47,7 +47,7 @@ export default function SignUp() {
 
             <div className="field-wrap">
               <label>Set A Password:</label>
-              <input className="input-1" type="text" name="password" />
+              <input className="input-1" type="password" name="password" />
             </div>
 
             <button type="submit" className="btn-1">
