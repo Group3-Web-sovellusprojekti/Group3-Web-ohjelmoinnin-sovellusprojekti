@@ -47,7 +47,7 @@ export default function SignUp() {
 
             <div className="field-wrap">
               <label>Set A Password:</label>
-              <input className="input-1" type="text" name="password" />
+              <input className="input-1" type="password" name="password" />
             </div>
 
             <button type="submit" className="btn-1">

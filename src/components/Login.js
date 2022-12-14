@@ -14,22 +14,23 @@ export default function Login(props) {
     setLoginProcessState("processing");
 
     try {
-      const result = await axios.post(
+      const response = await axios.post(
         Constants.API_ADDRESS +
           "/login?uname=" +
           event.target.username.value +
           "&pw=" +
           event.target.password.value
       );
-      console.log(result);
-      const token = result.data.token;
-      const uname = event.target.username.value
-      const receivedJWT = result.data;
-      localStorage.setItem("receivedJWT", JSON.stringify(receivedJWT));
-      localStorage.setItem("uname", uname);
-      setAuthToken(receivedJWT);
-      setUsername(uname);
-      props.login(token);
+      console.log(response);
+      console.log(response.data);
+      const receivedJWT = response.data;
+      const uname = event.target.username.value;
+
+      localStorage.setItem("nimi", uname);
+      localStorage.setItem("token", receivedJWT);
+
+      props.uname(uname);
+      props.login(receivedJWT);
       setLoginProcessState("loginSuccess");
       setTimeout(() => {
         navigate("/", { replace: true });
@@ -83,7 +84,7 @@ export default function Login(props) {
 
           <div className="field-wrap">
             <label>Set A Password:</label>
-            <input className="input-1" type="text" name="password" />
+            <input className="input-1" type="password" name="password" />
           </div>
           <p className="forgot">
             <>No User? </>{" "}
