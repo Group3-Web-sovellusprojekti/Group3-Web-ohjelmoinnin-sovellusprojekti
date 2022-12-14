@@ -1,7 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+
+
+  const Navbar = () => {
+    const [open, setOpen] = React.useState(false);
+  
+    const handleOpen = () => {
+      setOpen(!open);
+    };
+  
+    const handleMenuOne = () => {
+      // do something
+      setOpen(false);
+    };
+  
+    const handleMenuTwo = () => {
+      // do something
+      setOpen(false);
+    };
   return (
     <nav id="nav" class="navbar">
       <div class="col-3 navbar">
@@ -34,7 +51,17 @@ export default function Navbar() {
             </li>           
             <li>
               <Link to="settings" class="btn-r">
-                <button class="btn-1">Settings</button>
+              <button onClick={handleOpen}>Settings</button>
+               {open ? (
+              <ul className="menu">
+            <li className="menu-item">
+            <button onClick={handleMenuOne}>Log Out</button>
+          </li>
+          <li className="menu-item">
+            <button onClick={handleMenuTwo}>Delete User</button>
+          </li>
+        </ul>
+      ) : null}     
               </Link>
             </li>
             <li>
@@ -53,3 +80,4 @@ export default function Navbar() {
     </nav>
   );
 }
+export default Navbar;
