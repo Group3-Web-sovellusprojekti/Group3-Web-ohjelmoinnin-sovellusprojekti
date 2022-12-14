@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Constants from "./Constants.json";
+
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -11,7 +11,6 @@ export default function SignUp() {
     console.log(event.target.username.value);
     console.log(event.target.password.value);
     console.log(
-      Constants.API_ADDRESS +
         "/register?uname=" +
         event.target.username.value +
         "&pw=" +
@@ -20,7 +19,6 @@ export default function SignUp() {
 
     try {
       const result = await axios.post(
-        Constants.API_ADDRESS +
           "/register?uname=" +
           event.target.username.value +
           "&pw=" +

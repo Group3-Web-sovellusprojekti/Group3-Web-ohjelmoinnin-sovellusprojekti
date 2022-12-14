@@ -14,7 +14,7 @@ import Settings from "./components/Settings";
 
 import V1 from "./Chart/V1";
 import V2 from "./Chart/V2";
-import { setAuthToken, setUsername } from "./components/setAuthToken()";
+
 
 function App() {
   const [isUserloggedIn, setIsUserLoggedIn] = useState(false);
