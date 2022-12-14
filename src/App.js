@@ -11,8 +11,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Settings from "./components/Settings";
-import Test from "./Chart/Test";
-import Test2 from "./Chart/Test2";
+
 import V1 from "./Chart/V1";
 import V2 from "./Chart/V2";
 import { setAuthToken, setUsername } from "./components/setAuthToken()";
@@ -42,8 +41,7 @@ function App() {
             }
           />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/Test" element={<Test />} />
-          <Route path="/Test2" element={<Test2 />} />
+
           <Route path="/V1" element={<V1 />} />
           <Route path="/V2" element={<V2 />} />
         </Routes>

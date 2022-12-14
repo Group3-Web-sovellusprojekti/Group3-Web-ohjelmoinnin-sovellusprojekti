@@ -18,7 +18,7 @@ const Navbar = () => {
     setOpen(false);
   };
   return (
-    <nav id="nav" class="navbar">
+    
       <div class="field-wrap">
         <ul class="ul-1">
           <li>
@@ -36,17 +36,6 @@ const Navbar = () => {
               <button class="btn-1">Log In</button>
             </Link>
           </li>
-          <li>
-            <Link to="test">
-              <button class="btn-1">test</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="test2">
-              <button class="btn-1">test2</button>
-            </Link>
-          </li>
-
           <li>
             <Link to="V1">
               <button class="btn-1">V1</button>
@@ -66,7 +55,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-    </nav>
+    
   );
 };
 export default Navbar;
