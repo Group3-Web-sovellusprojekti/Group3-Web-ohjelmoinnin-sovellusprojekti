@@ -13,18 +13,18 @@ public class annglobal {
     @Id
     @Column(name = "timeA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int timeA;
+    public String timeA;
 
     @Column(name = "global")
     public double global;
 
     @Column(name = "time")
-    public int time;
+    public double time;
 
     public annglobal() {
     }
 
-    public annglobal(int timeA, double global, int time) {
+    public annglobal(String timeA, double global, double time) {
         this.timeA = timeA;
         this.global = global;
         this.time = time;
