@@ -1,5 +1,0 @@
-runtime: nodejs16
-service: server
-entrypoint: node index.js
-env_variables:
-  GAE_DB_ADDRESS: "/cloudsql/forward-chess-371413:europe-west1:ilmastoteht"
