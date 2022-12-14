@@ -45,102 +45,102 @@ public class DataController {
     @Autowired
     private Dataservice dataservice;
 
-    @GetMapping("testtable")
+    @GetMapping("/testtable")
     public List<TestTable> getTable() {
         return dataservice.getTable();
     }
 
-    @GetMapping("annglobal")
+    @GetMapping("/annglobal")
     public List<annglobal> getAnnGlobal() {
         return dataservice.getAnnGlobal();
     }
 
-    @GetMapping("annnorth")
+    @GetMapping("/annnorth")
     public List<annnorth> getAnnNorth() {
         return dataservice.getAnnNorth();
     }
 
-    @GetMapping("annsouth")
+    @GetMapping("/annsouth")
     public List<annsouth> getAnnSouth() {
         return dataservice.getAnnSouth();
     }
 
-    @GetMapping("monglobal")
+    @GetMapping("/monglobal")
     public List<monglobal> getMonGlobal() {
         return dataservice.getMonGlobal();
     }
 
-    @GetMapping("monnorth")
+    @GetMapping("/monnorth")
     public List<monnorth> getMonNorth() {
         return dataservice.getMonNorth();
     }
 
-    @GetMapping("monsouth")
+    @GetMapping("/monsouth")
     public List<monsouth> getMonSouth() {
         return dataservice.getMonSouth();
     }
 
-    @GetMapping("antarticice")
+    @GetMapping("/antarticice")
     public List<antarticice> getAntarticice() {
         return dataservice.getAntarticice();
     }
 
-    @GetMapping("coemisscountry")
+    @GetMapping("/coemisscountry")
     public List<coemisscountry> getCoemisscountry() {
         return dataservice.getCoemisscountry();
     }
 
-    @GetMapping("coemissmtc")
+    @GetMapping("/coemissmtc")
     public List<coemissmtc> getCoemissmtc() {
         return dataservice.getCoemissmtc();
     }
 
-    @GetMapping("emisssector")
+    @GetMapping("/emisssector")
     public List<emisssector> getEmisssector() {
         return dataservice.getEmisssector();
     }
 
-    @GetMapping("evolutionco")
+    @GetMapping("/evolutionco")
     public List<evolutionco> getEvolutionco() {
         return dataservice.getEvolutionco();
     }
 
-    @GetMapping("evolutiontemp")
+    @GetMapping("/evolutiontemp")
     public List<evolutiontemp> getEvolutiontemp() {
         return dataservice.getEvolutiontemp();
     }
 
-    @GetMapping("humanevo")
+    @GetMapping("/humanevo")
     public List<humanevo> getHumanevo() {
         return dataservice.getHumanevo();
     }
 
-    @GetMapping("lawdome1")
+    @GetMapping("/lawdome1")
     public List<lawdome1> getLawdome1() {
         return dataservice.getLawdome1();
     }
 
-    @GetMapping("lawdome2")
+    @GetMapping("/lawdome2")
     public List<lawdome2> getLawdome2() {
         return dataservice.getLawdome2();
     }
 
-    @GetMapping("lawdome3")
+    @GetMapping("/lawdome3")
     public List<lawdome3> getLawdome3() {
         return dataservice.getLawdome3();
     }
 
-    @GetMapping("maunaloa")
+    @GetMapping("/maunaloa")
     public List<maunaloa> getMaunaloa() {
         return dataservice.getMaunaloa();
     }
 
-    @GetMapping("northernreconstruction")
+    @GetMapping("/northernreconstruction")
     public List<northernreconstruction> getNortherreconst() {
         return dataservice.getNorthernreconst();
     }
 
-    @GetMapping("vostok")
+    @GetMapping("/vostok")
     public List<vostok> getVostok() {
         return dataservice.getVostok();
     }
